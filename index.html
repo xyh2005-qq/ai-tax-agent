@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tax Agent - Professional US Tax & Salary Calculator</title>
+    <meta name="description" content="Professional tax calculations with AI-powered optimization strategies. Calculate your exact take-home pay, discover tax savings, and find the best states for your salary.">
+    <meta name="keywords" content="tax calculator, salary calculator, AI tax optimization, state tax comparison, CPA network">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* 专业税务配色 */
+        .tax-primary { background-color: #1B5E20; }
+        .tax-primary-light { background-color: #2E7D32; }
+        .tax-secondary { background-color: #1565C0; }
+        .tax-secondary-light { background-color: #1976D2; }
+        .tax-accent { background-color: #FF8F00; }
+        .tax-accent-light { background-color: #FFA000; }
+        .tax-gray { background-color: #37474F; }
+        .tax-gray-light { background-color: #455A64; }
+        
+        .text-tax-primary { color: #1B5E20; }
+        .text-tax-secondary { color: #1565C0; }
+        .text-tax-accent { color: #FF8F00; }
+        .text-tax-gray { color: #37474F; }
+        
+        .border-tax-primary { border-color: #1B5E20; }
+        .border-tax-secondary { border-color: #1565C0; }
+        .border-tax-accent { border-color: #FF8F00; }
+        
+        .bg-tax-gradient { 
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #1565C0 100%); 
+        }
+        .bg-tax-light-gradient { 
+            background: linear-gradient(135deg, #E8F5E8 0%, #E3F2FD 100%); 
+        }
+        
+        /* 专业阴影效果 */
+        .tax-shadow { box-shadow: 0 4px 20px rgba(27, 94, 32, 0.15); }
+        .tax-shadow-lg { box-shadow: 0 10px 40px rgba(27, 94, 32, 0.2); }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50 border-b-2 border-tax-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-university text-2xl text-tax-primary mr-3"></i>
+                        <span class="text-xl font-bold text-tax-gray">AI Tax Agent</span>
+                        <span class="ml-2 text-sm text-tax-secondary font-medium">Professional</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#calculator" class="text-tax-gray hover:text-tax-primary transition font-medium">Calculator</a>
+                    <a href="compare-states.html" class="text-tax-gray hover:text-tax-primary transition font-medium">Compare States</a>
+                    <a href="tax-resources.html" class="text-tax-gray hover:text-tax-primary transition font-medium">Tax Resources</a>
+                    <a href="cpa-network.html" class="text-tax-gray hover:text-tax-primary transition font-medium">CPA Network</a>
+                    <button class="tax-primary text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition font-medium">
+                        <i class="fas fa-user-tie mr-2"></i>Find CPA
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-tax-light-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center mb-12">
+                <div class="flex justify-center mb-6">
+                    <div class="bg-white p-4 rounded-full tax-shadow">
+                        <i class="fas fa-calculator text-4xl text-tax-primary"></i>
+                    </div>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold text-tax-gray mb-6">
+                    Professional <span class="text-tax-primary">Tax Calculator</span>
+                    <br>with <span class="text-tax-secondary">Expert Insights</span>
+                </h1>
+                <p class="text-xl text-tax-gray-light max-w-3xl mx-auto mb-8">
+                    Accurate tax calculations, strategic optimization advice, and professional-grade 
+                    analysis trusted by tax professionals and individuals nationwide.
+                </p>
+                
+                <!-- Trust Indicators -->
+                <div class="flex flex-wrap justify-center gap-6 mb-8">
+                    <div class="flex items-center bg-white rounded-lg px-4 py-3 tax-shadow">
+                        <i class="fas fa-shield-alt text-tax-primary mr-3"></i>
+                        <div class="text-left">
+                            <div class="text-sm font-bold text-tax-gray">IRS Compliant</div>
+                            <div class="text-xs text-tax-gray-light">2026 Tax Code</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center bg-white rounded-lg px-4 py-3 tax-shadow">
+                        <i class="fas fa-user-graduate text-tax-secondary mr-3"></i>
+                        <div class="text-left">
+                            <div class="text-sm font-bold text-tax-gray">CPA Reviewed</div>
+                            <div class="text-xs text-tax-gray-light">Professional Grade</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center bg-white rounded-lg px-4 py-3 tax-shadow">
+                        <i class="fas fa-lock text-tax-accent mr-3"></i>
+                        <div class="text-left">
+                            <div class="text-sm font-bold text-tax-gray">Secure & Private</div>
+                            <div class="text-xs text-tax-gray-light">No Data Stored</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Calculator Card -->
+            <div class="max-w-5xl mx-auto">
+                <div class="bg-white rounded-2xl tax-shadow-lg overflow-hidden">
+                    <!-- Header -->
+                    <div class="bg-tax-gradient px-8 py-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h2 class="text-2xl font-bold text-white flex items-center">
+                                    <i class="fas fa-calculator mr-3"></i>
+                                    Professional Tax Calculator
+                                </h2>
+                                <p class="text-green-100 mt-2">Enter your information for comprehensive tax analysis</p>
+                            </div>
+                            <div class="hidden md:block">
+                                <div class="bg-white bg-opacity-20 rounded-lg p-3">
+                                    <div class="text-white text-sm font-medium">Trusted by</div>
+                                    <div class="text-white text-lg font-bold">50,000+ Users</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8">
+                        <form id="taxCalculatorForm" class="space-y-8">
+                            <!-- Primary Information -->
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <!-- Salary Input -->
+                                <div class="space-y-3">
+                                    <label class="block text-sm font-bold text-tax-gray">
+                                        <i class="fas fa-dollar-sign text-tax-primary mr-2"></i>
+                                        Annual Gross Income
+                                    </label>
+                                    <div class="relative">
+                                        <span class="absolute left-4 top-4 text-tax-gray-light font-medium">$</span>
+                                        <input 
+                                            type="text" 
+                                            id="salary" 
+                                            class="w-full pl-10 pr-4 py-4 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-tax-primary focus:border-tax-primary text-lg font-medium"
+                                            placeholder="100,000"
+                                        >
+                                    </div>
+                                    <div class="flex justify-between text-xs text-tax-gray-light">
+                                        <span>Minimum: $20,000</span>
+                                        <span>Maximum: $1,000,000+</span>
+                                    </div>
+                                </div>
+
+                                <!-- State Selection -->
+                                <div class="space-y-3">
+                                    <label class="block text-sm font-bold text-tax-gray">
+                                        <i class="fas fa-map-marker-alt text-tax-secondary mr-2"></i>
+                                        State & Location
+                                    </label>
+                                    <select 
+                                        id="state" 
+                                        class="w-full px-4 py-4 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-tax-primary focus:border-tax-primary text-lg font-medium"
+                                    >
+                                        <option value="">Select your state and city...</option>
+                                        <optgroup label="🏙️ High-Tax States">
+                                            <option value="NY-NYC">New York, NY (New York City)</option>
+                                            <option value="CA-SF">California, CA (San Francisco)</option>
+                                            <option value="NJ-Newark">New Jersey, NJ (Newark)</option>
+                                            <option value="CT-Hartford">Connecticut, CT (Hartford)</option>
+                                        </optgroup>
+                                        <optgroup label="💰 Tax-Friendly States">
+                                            <option value="TX-Austin">Texas, TX (Austin) - No State Tax</option>
+                                            <option value="FL-Miami">Florida, FL (Miami) - No State Tax</option>
+                                            <option value="NV-Vegas">Nevada, NV (Las Vegas) - No State Tax</option>
+                                            <option value="WA-Seattle">Washington, WA (Seattle) - No State Tax</option>
+                                            <option value="TN-Nashville">Tennessee, TN (Nashville) - No State Tax</option>
+                                        </optgroup>
+                                        <optgroup label="🌟 Popular Destinations">
+                                            <option value="CO-Denver">Colorado, CO (Denver)</option>
+                                            <option value="NC-Charlotte">North Carolina, NC (Charlotte)</option>
+                                            <option value="GA-Atlanta">Georgia, GA (Atlanta)</option>
+                                            <option value="AZ-Phoenix">Arizona, AZ (Phoenix)</option>
+                                        </optgroup>
+                                    </select>
+                                    <p class="text-xs text-tax-gray-light">
+                                        <i class="fas fa-info-circle mr-1"></i>
+                                        Includes federal, state, and local tax calculations
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Tax Filing Information -->
+                            <div class="bg-gray-50 p-6 rounded-xl">
+                                <h3 class="text-lg font-bold text-tax-gray mb-4 flex items-center">
+                                    <i class="fas fa-file-alt text-tax-secondary mr-2"></i>
+                                    Tax Filing Information
+                                </h3>
+                                <div class="grid md:grid-cols-3 gap-6">
+                                    <div class="space-y-2">
+                                        <label class="block text-sm font-semibold text-tax-gray">Filing Status</label>
+                                        <select 
+                                            id="filingStatus" 
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-tax-primary focus:border-tax-primary"
+                                        >
+                                            <option value="single">Single</option>
+                                            <option value="marriedJoint">Married Filing Jointly</option>
+                                            <option value="marriedSeparate">Married Filing Separately</option>
+                                            <option value="headOfHousehold">Head of Household</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="space-y-2">
+                                        <label class="block text-sm font-semibold text-tax-gray">Age</label>
+                                        <input 
+                                            type="number" 
+                                            id="age" 
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-tax-primary focus:border-tax-primary"
+                                            placeholder="30"
+                                            min="18"
+                                            max="100"
+                                        >
+                                    </div>
+
+                                    <div class="space-y-2">
+                                        <label class="block text-sm font-semibold text-tax-gray">Dependents</label>
+                                        <input 
+                                            type="number" 
+                                            id="dependents" 
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-tax-primary focus:border-tax-primary"
+                                            placeholder="0"
+                                            min="0"
+                                            max="10"
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Calculate Button -->
+                            <div class="text-center pt-8 border-t-2 border-gray-200">
+                                <button 
+                                    type="submit" 
+                                    class="bg-tax-gradient hover:opacity-90 text-white font-bold py-5 px-12 rounded-xl text-lg tax-shadow-lg transform hover:scale-105 transition-all duration-200"
+                                >
+                                    <i class="fas fa-calculator mr-3"></i>
+                                    Calculate My Tax Liability
+                                </button>
+                                <p class="text-sm text-tax-gray-light mt-4 flex items-center justify-center">
+                                    <i class="fas fa-shield-alt text-tax-primary mr-2"></i>
+                                    Secure calculation • No personal data stored • IRS compliant
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Credentials Section -->
+    <section class="bg-white py-16 border-t-4 border-tax-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-tax-gray mb-4">Trusted by Tax Professionals</h2>
+                <p class="text-tax-gray-light max-w-2xl mx-auto">
+                    Our calculations are reviewed by certified public accountants and updated with the latest tax code changes
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="bg-tax-primary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-tax-gray">50,000+</h3>
+                    <p class="text-tax-gray-light font-medium">Professionals Served</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-tax-secondary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-certificate text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-tax-gray">CPA</h3>
+                    <p class="text-tax-gray-light font-medium">Reviewed & Verified</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-tax-accent w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-calendar-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-tax-gray">2026</h3>
+                    <p class="text-tax-gray-light font-medium">Current Tax Year</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-tax-primary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-star text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-tax-gray">4.9/5</h3>
+                    <p class="text-tax-gray-light font-medium">Professional Rating</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Features Section -->
+    <section class="bg-gray-50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-tax-gray mb-4">Professional-Grade Tax Analysis</h2>
+                <p class="text-tax-gray-light max-w-2xl mx-auto">
+                    Advanced features designed for tax professionals, financial advisors, and informed taxpayers
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl tax-shadow hover:shadow-xl transition-shadow">
+                    <div class="bg-tax-primary w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-brain text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-tax-gray mb-4">AI Tax Optimization</h3>
+                    <p class="text-tax-gray-light mb-4">
+                        Advanced algorithms analyze your tax situation and recommend specific strategies 
+                        to minimize your tax liability legally and ethically.
+                    </p>
+                    <ul class="space-y-2 text-sm text-tax-gray-light">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-tax-primary mr-2"></i>
+                            Retirement contribution optimization
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-tax-primary mr-2"></i>
+                            Tax credit identification
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-tax-primary mr-2"></i>
+                            Deduction maximization strategies
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl tax-shadow hover:shadow-xl transition-shadow">
+                    <div class="bg-tax-secondary w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-map-marked-alt text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-tax-gray mb-4">Multi-State Analysis</h3>
+                    <p class="text-tax-gray-light mb-4">
+                        Compare tax implications across all 50 states with detailed cost-of-living 
+                        adjustments and professional relocation advice.
+                    </p>
+                    <ul class="space-y-2 text-sm text-tax-gray-light">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-tax-secondary mr-2"></i>
+                            State tax comparison matrix
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-tax-secondary mr-2"></i>
+                            Cost of living adjustments
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-tax-secondary mr-2"></i>
+                            Professional opportunity analysis
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl tax-shadow hover:shadow-xl transition-shadow">
+                    <div class="bg-tax-accent w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-file-invoice-dollar text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-tax-gray mb-4">Professional Reports</h3>
+                    <p class="text-tax-gray-light mb-4">
+                        Generate comprehensive tax analysis reports suitable for financial planning, 
+                        loan applications, and professional consultations.
+                    </p>
+                    <ul class="space-y-2 text-sm text-tax-gray-light">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-tax-accent mr-2"></i>
+                            Detailed tax breakdown analysis
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-tax-accent mr-2"></i>
+                            Professional PDF reports
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-tax-accent mr-2"></i>
+                            Year-over-year comparisons
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CPA Network Section -->
+    <section class="bg-tax-gradient py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-white bg-opacity-10 rounded-2xl p-8">
+                <h2 class="text-3xl font-bold text-white mb-4">Need Professional Tax Advice?</h2>
+                <p class="text-xl text-green-100 mb-8">
+                    Connect with our network of certified public accountants for personalized tax planning and preparation services.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-white text-tax-primary font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition">
+                        <i class="fas fa-user-tie mr-2"></i>
+                        Find a CPA Near Me
+                    </button>
+                    <button class="border-2 border-white text-white font-bold py-4 px-8 rounded-lg hover:bg-white hover:text-tax-primary transition">
+                        <i class="fas fa-calendar-check mr-2"></i>
+                        Schedule Consultation
+                    </button>
+                </div>
+                <p class="text-green-100 text-sm mt-4">
+                    <i class="fas fa-shield-alt mr-1"></i>
+                    All CPAs in our network are licensed and verified professionals
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-tax-gray text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-university text-2xl text-tax-accent mr-3"></i>
+                        <span class="text-xl font-bold">AI Tax Agent</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Professional tax calculations and optimization strategies powered by artificial intelligence.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4 text-tax-accent">Professional Tools</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition">Tax Calculator</a></li>
+                        <li><a href="compare-states.html" class="hover:text-white transition">State Comparison Tool</a></li>
+                        <li><a href="#" class="hover:text-white transition">Retirement Planner</a></li>
+                        <li><a href="#" class="hover:text-white transition">Tax Optimization Guide</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4 text-tax-accent">Tax Resources</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="tax-resources.html" class="hover:text-white transition">2026 Tax Brackets</a></li>
+                        <li><a href="#" class="hover:text-white transition">State Tax Rates</a></li>
+                        <li><a href="#" class="hover:text-white transition">Tax Law Updates</a></li>
+                        <li><a href="#" class="hover:text-white transition">Professional FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4 text-tax-accent">Support</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition">Contact Support</a></li>
+                        <li><a href="cpa-network.html" class="hover:text-white transition">CPA Network</a></li>
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-600 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2026 AI Tax Agent Professional. All rights reserved.</p>
+                <p class="text-tax-accent text-sm mt-2">
+                    <i class="fas fa-exclamation-triangle mr-1"></i>
+                    For informational purposes only. Please consult a qualified tax professional for personalized advice.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Salary input formatting with commas
+        document.getElementById('salary').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/[^\d]/g, '');
+            if (value) {
+                e.target.value = parseInt(value).toLocaleString();
+            }
+        });
+
+        // Form submission
+        document.getElementById('taxCalculatorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = {
+                salary: document.getElementById('salary').value.replace(/,/g, ''),
+                state: document.getElementById('state').value,
+                filingStatus: document.getElementById('filingStatus').value,
+                age: document.getElementById('age').value,
+                dependents: document.getElementById('dependents').value
+            };
+            
+            // Validate required fields
+            if (!formData.salary || !formData.state) {
+                alert('Please enter your salary and select your state.');
+                return;
+            }
+            
+            // Show professional loading state
+            const button = document.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i>Analyzing Your Tax Situation...';
+            button.disabled = true;
+            
+            // Simulate professional calculation process
+            setTimeout(() => {
+                // Redirect to results page with data
+                const params = new URLSearchParams(formData);
+                window.location.href = `results.html?${params.toString()}`;
+            }, 3000);
+        });
+
+        // Professional input validation
+        document.getElementById('salary').addEventListener('blur', function(e) {
+            const value = parseInt(e.target.value.replace(/,/g, ''));
+            if (value < 20000) {
+                e.target.style.borderColor = '#EF4444';
+            } else {
+                e.target.style.borderColor = '#1B5E20';
+            }
+        });
+    </script>
+</body>
+</html>
