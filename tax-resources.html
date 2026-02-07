@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Resources & Guides - AI Tax Agent Professional</title>
+    <meta name="description" content="Professional tax guides, 2026 tax brackets, state tax rates, and expert resources for tax optimization.">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .tax-primary { background-color: #1B5E20; }
+        .tax-secondary { background-color: #1565C0; }
+        .tax-accent { background-color: #FF8F00; }
+        .tax-gray { background-color: #37474F; }
+        .text-tax-primary { color: #1B5E20; }
+        .text-tax-secondary { color: #1565C0; }
+        .text-tax-accent { color: #FF8F00; }
+        .text-tax-gray { color: #37474F; }
+        .bg-tax-gradient { background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #1565C0 100%); }
+        .tax-shadow { box-shadow: 0 4px 20px rgba(27, 94, 32, 0.15); }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50 border-b-2 border-tax-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-university text-2xl text-tax-primary mr-3"></i>
+                        <span class="text-xl font-bold text-tax-gray">AI Tax Agent</span>
+                        <span class="ml-2 text-sm text-tax-secondary font-medium">Professional</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-tax-gray hover:text-tax-primary transition font-medium">Calculator</a>
+                    <a href="compare-states.html" class="text-tax-gray hover:text-tax-primary transition font-medium">Compare States</a>
+                    <a href="#" class="text-tax-primary font-bold">Tax Resources</a>
+                    <a href="cpa-network.html" class="text-tax-gray hover:text-tax-primary transition font-medium">CPA Network</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="bg-tax-gradient text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex justify-center mb-6">
+                <div class="bg-white bg-opacity-20 p-4 rounded-full">
+                    <i class="fas fa-book text-4xl text-white"></i>
+                </div>
+            </div>
+            <h1 class="text-4xl font-bold mb-4">Professional Tax Resources</h1>
+            <p class="text-xl text-green-100">Expert guides, tools, and insights for tax optimization</p>
+        </div>
+    </section>
+
+    <!-- Featured Resources -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                
+                <!-- 2026 Tax Guide -->
+                <div class="bg-white rounded-xl tax-shadow p-6">
+                    <div class="bg-tax-primary w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-book text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-tax-gray mb-3">2026 Tax Brackets & Rates</h3>
+                    <p class="text-tax-gray mb-4">Complete guide to federal and state tax brackets for 2026, including standard deductions and filing thresholds.</p>
+                    <button class="bg-tax-primary text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition">
+                        <i class="fas fa-download mr-2"></i>Download Guide
+                    </button>
+                </div>
+
+                <!-- State Tax Comparison -->
+                <div class="bg-white rounded-xl tax-shadow p-6">
+                    <div class="bg-tax-secondary w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-map-marked-alt text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-tax-gray mb-3">State Tax Rate Matrix</h3>
+                    <p class="text-tax-gray mb-4">Comprehensive comparison of all 50 states' income tax rates, sales tax, and property tax information.</p>
+                    <button class="bg-tax-secondary text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition">
+                        <i class="fas fa-table mr-2"></i>View Matrix
+                    </button>
+                </div>
+
+                <!-- Tax Planning Checklist -->
+                <div class="bg-white rounded-xl tax-shadow p-6">
+                    <div class="bg-tax-accent w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-tasks text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-tax-gray mb-3">Year-End Tax Checklist</h3>
+                    <p class="text-tax-gray mb-4">Professional checklist for tax optimization strategies and year-end planning activities.</p>
+                    <button class="bg-tax-accent text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition">
+                        <i class="fas fa-check mr-2"></i>Get Checklist
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Tax Brackets Table -->
+            <div class="bg-white rounded-xl tax-shadow p-8 mb-8">
+                <h2 class="text-2xl font-bold text-tax-gray mb-6">2026 Federal Tax Brackets</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-tax-gradient text-white">
+                                <th class="px-6 py-3 text-left font-bold">Tax Rate</th>
+                                <th class="px-6 py-3 text-left font-bold">Single</th>
+                                <th class="px-6 py-3 text-left font-bold">Married Filing Jointly</th>
+                                <th class="px-6 py-3 text-left font-bold">Head of Household</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 font-semibold">10%</td>
+                                <td class="px-6 py-4">$0 - $11,000</td>
+                                <td class="px-6 py-4">$0 - $22,000</td>
+                                <td class="px-6 py-4">$0 - $15,700</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 font-semibold">12%</td>
+                                <td class="px-6 py-4">$11,001 - $44,725</td>
+                                <td class="px-6 py-4">$22,001 - $89,450</td>
+                                <td class="px-6 py-4">$15,701 - $59,850</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 font-semibold">22%</td>
+                                <td class="px-6 py-4">$44,726 - $95,375</td>
+                                <td class="px-6 py-4">$89,451 - $190,750</td>
+                                <td class="px-6 py-4">$59,851 - $95,350</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 font-semibold">24%</td>
+                                <td class="px-6 py-4">$95,376 - $182,050</td>
+                                <td class="px-6 py-4">$190,751 - $364,200</td>
+                                <td class="px-6 py-4">$95,351 - $182,050</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Articles -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-tax-gray mb-8">Latest Tax Insights</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <article class="border-l-4 border-tax-primary pl-6">
+                    <div class="text-sm text-tax-gray mb-2">February 7, 2026</div>
+                    <h3 class="text-xl font-bold text-tax-gray mb-3">
+                        <a href="#" class="hover:text-tax-primary transition">
+                            2026 Tax Law Changes: What You Need to Know
+                        </a>
+                    </h3>
+                    <p class="text-tax-gray">Key updates to federal tax law for 2026, including new deduction limits and bracket adjustments...</p>
+                </article>
+                
+                <article class="border-l-4 border-tax-secondary pl-6">
+                    <div class="text-sm text-tax-gray mb-2">February 5, 2026</div>
+                    <h3 class="text-xl font-bold text-tax-gray mb-3">
+                        <a href="#" class="hover:text-tax-secondary transition">
+                            Maximizing Your 401(k) in 2026: New Limits and Strategies
+                        </a>
+                    </h3>
+                    <p class="text-tax-gray">Updated contribution limits and advanced strategies for retirement tax planning...</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-tax-gray text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2026 AI Tax Agent Professional. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

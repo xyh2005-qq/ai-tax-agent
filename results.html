@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Professional Tax Analysis - AI Tax Agent</title>
+    <meta name="description" content="Comprehensive AI-powered tax analysis with optimization strategies and professional insights.">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .tax-primary { background-color: #1B5E20; }
+        .tax-secondary { background-color: #1565C0; }
+        .tax-accent { background-color: #FF8F00; }
+        .tax-gray { background-color: #37474F; }
+        .text-tax-primary { color: #1B5E20; }
+        .text-tax-secondary { color: #1565C0; }
+        .text-tax-accent { color: #FF8F00; }
+        .text-tax-gray { color: #37474F; }
+        .bg-tax-gradient { background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #1565C0 100%); }
+        .tax-shadow { box-shadow: 0 4px 20px rgba(27, 94, 32, 0.15); }
+        .tax-shadow-lg { box-shadow: 0 10px 40px rgba(27, 94, 32, 0.2); }
+        .metric-card { transition: all 0.3s ease; }
+        .metric-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(27, 94, 32, 0.2); }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50 border-b-2 border-tax-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-university text-2xl text-tax-primary mr-3"></i>
+                        <span class="text-xl font-bold text-tax-gray">AI Tax Agent</span>
+                        <span class="ml-2 text-sm text-tax-secondary font-medium">Professional</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-tax-gray hover:text-tax-primary transition font-medium">
+                        <i class="fas fa-calculator mr-1"></i>New Calculation
+                    </a>
+                    <button class="tax-primary text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition font-medium">
+                        <i class="fas fa-download mr-2"></i>Download Report
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Results Header -->
+    <section class="bg-tax-gradient text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex justify-center mb-4">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-full">
+                        <i class="fas fa-chart-line text-4xl text-white"></i>
+                    </div>
+                </div>
+                <h1 class="text-4xl font-bold mb-4">Professional Tax Analysis Report</h1>
+                <p class="text-xl text-green-100">Comprehensive analysis with optimization strategies</p>
+                <div class="mt-6 flex justify-center">
+                    <div class="bg-white bg-opacity-20 rounded-lg px-6 py-3">
+                        <span class="text-sm font-medium">Analysis Date: </span>
+                        <span class="font-bold" id="analysisDate"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Summary Dashboard -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-2xl tax-shadow-lg p-8 mb-8">
+                <h2 class="text-2xl font-bold text-tax-gray mb-8 flex items-center">
+                    <i class="fas fa-tachometer-alt text-tax-primary mr-3"></i>
+                    Executive Summary Dashboard
+                </h2>
+                
+                <!-- Key Metrics Grid -->
+                <div class="grid md:grid-cols-4 gap-6 mb-8">
+                    <div class="metric-card text-center p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-xl tax-shadow">
+                        <div class="text-4xl font-bold text-tax-primary mb-2" id="takeHomePay">$73,450</div>
+                        <div class="text-sm text-tax-gray font-medium">Annual Take-Home</div>
+                        <div class="text-xs text-tax-primary mt-2 font-semibold" id="monthlyPay">$6,121/month</div>
+                        <div class="mt-3 flex justify-center">
+                            <span class="bg-tax-primary text-white text-xs px-2 py-1 rounded-full">
+                                <i class="fas fa-arrow-up mr-1"></i>Optimized
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl tax-shadow">
+                        <div class="text-4xl font-bold text-tax-secondary mb-2" id="effectiveRate">26.5%</div>
+                        <div class="text-sm text-tax-gray font-medium">Effective Tax Rate</div>
+                        <div class="text-xs text-tax-secondary mt-2 font-semibold">Below National Avg</div>
+                        <div class="mt-3 flex justify-center">
+                            <span class="bg-tax-secondary text-white text-xs px-2 py-1 rounded-full">
+                                <i class="fas fa-thumbs-up mr-1"></i>Good
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card text-center p-6 bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl tax-shadow">
+                        <div class="text-4xl font-bold text-tax-accent mb-2" id="taxSavings">$6,850</div>
+                        <div class="text-sm text-tax-gray font-medium">Annual Tax Savings</div>
+                        <div class="text-xs text-tax-accent mt-2 font-semibold">vs No Optimization</div>
+                        <div class="mt-3 flex justify-center">
+                            <span class="bg-tax-accent text-white text-xs px-2 py-1 rounded-full">
+                                <i class="fas fa-star mr-1"></i>Excellent
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card text-center p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl tax-shadow">
+                        <div class="text-4xl font-bold text-tax-gray mb-2" id="incomePercentile">78th</div>
+                        <div class="text-sm text-tax-gray font-medium">Income Percentile</div>
+                        <div class="text-xs text-tax-gray mt-2 font-semibold">National Ranking</div>
+                        <div class="mt-3 flex justify-center">
+                            <span class="bg-tax-gray text-white text-xs px-2 py-1 rounded-full">
+                                <i class="fas fa-chart-line mr-1"></i>High Earner
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tax Breakdown Visualization -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-lg font-bold text-tax-gray mb-4 flex items-center">
+                            <i class="fas fa-chart-pie text-tax-primary mr-2"></i>
+                            Tax Liability Breakdown
+                        </h3>
+                        <div class="relative">
+                            <canvas id="taxBreakdownChart" width="400" height="300"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-bold text-tax-gray mb-4 flex items-center">
+                            <i class="fas fa-list-alt text-tax-secondary mr-2"></i>
+                            Detailed Tax Components
+                        </h3>
+                        <div class="space-y-3" id="taxComponents">
+                            <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg border-l-4 border-tax-secondary">
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 bg-tax-secondary rounded-full mr-3"></div>
+                                    <div>
+                                        <div class="font-semibold text-tax-gray">Federal Income Tax</div>
+                                        <div class="text-xs text-tax-gray opacity-75">Marginal Rate: 22%</div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-bold text-tax-gray">$16,739</div>
+                                    <div class="text-xs text-tax-gray opacity-75">16.7%</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg border-l-4 border-tax-primary">
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 bg-tax-primary rounded-full mr-3"></div>
+                                    <div>
+                                        <div class="font-semibold text-tax-gray">FICA Taxes</div>
+                                        <div class="text-xs text-tax-gray opacity-75">Social Security + Medicare</div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-bold text-tax-gray">$7,650</div>
+                                    <div class="text-xs text-tax-gray opacity-75">7.7%</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg border-l-4 border-tax-accent">
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 bg-tax-accent rounded-full mr-3"></div>
+                                    <div>
+                                        <div class="font-semibold text-tax-gray">State Income Tax</div>
+                                        <div class="text-xs text-tax-gray opacity-75" id="stateName">Texas</div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-bold text-tax-gray" id="stateTax">$0</div>
+                                    <div class="text-xs text-tax-gray opacity-75">0%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Professional Insights -->
+            <div class="bg-tax-gradient rounded-2xl tax-shadow-lg p-8 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-brain mr-3"></i>
+                    AI Professional Tax Insights
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 flex items-center">
+                            <i class="fas fa-lightbulb mr-2"></i>
+                            Key Observations
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                                <div class="flex items-start">
+                                    <i class="fas fa-star text-yellow-300 mr-3 mt-1"></i>
+                                    <div>
+                                        <div class="font-semibold mb-1">Excellent Tax Position</div>
+                                        <div class="text-sm text-green-100">
+                                            Your effective tax rate of 26.5% is significantly below the national average 
+                                            for your income level, indicating good tax efficiency.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                                <div class="flex items-start">
+                                    <i class="fas fa-chart-line text-green-300 mr-3 mt-1"></i>
+                                    <div>
+                                        <div class="font-semibold mb-1">Optimization Opportunity</div>
+                                        <div class="text-sm text-green-100">
+                                            Maximizing your 401(k) contribution could save an additional 
+                                            $4,600 annually in federal taxes.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 flex items-center">
+                            <i class="fas fa-map-marked-alt mr-2"></i>
+                            Geographic Tax Strategy
+                        </h3>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-6">
+                            <div class="text-center mb-4">
+                                <div class="text-3xl font-bold mb-2">💡 Smart Location Choice</div>
+                                <div class="text-lg font-semibold" id="locationAdvice">Texas Advantage</div>
+                            </div>
+                            <div class="space-y-3 text-sm">
+                                <div class="flex justify-between">
+                                    <span>No State Income Tax:</span>
+                                    <span class="font-bold">$0</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Annual Savings vs NY:</span>
+                                    <span class="font-bold">$8,200</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Cost of Living:</span>
+                                    <span class="font-bold text-green-300">15% Lower</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tax Optimization Recommendations -->
+            <div class="bg-white rounded-2xl tax-shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-tax-gray mb-6 flex items-center">
+                    <i class="fas fa-route text-tax-primary mr-3"></i>
+                    Professional Tax Optimization Recommendations
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-green-50 border border-green-200 p-6 rounded-lg">
+                        <h3 class="font-bold text-tax-primary mb-3 flex items-center">
+                            <i class="fas fa-piggy-bank mr-2"></i>
+                            Retirement Optimization
+                        </h3>
+                        <p class="text-sm text-tax-gray mb-4">
+                            Maximize your 401(k) contribution to the 2026 limit of $23,000
+                        </p>
+                        <div class="bg-white p-3 rounded border-l-4 border-tax-primary">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-medium">Annual Tax Savings:</span>
+                                <span class="font-bold text-tax-primary text-lg">$4,600</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 border border-blue-200 p-6 rounded-lg">
+                        <h3 class="font-bold text-tax-secondary mb-3 flex items-center">
+                            <i class="fas fa-heart mr-2"></i>
+                            Health Savings Account
+                        </h3>
+                        <p class="text-sm text-tax-gray mb-4">
+                            Open an HSA and contribute the maximum $4,300 for 2026
+                        </p>
+                        <div class="bg-white p-3 rounded border-l-4 border-tax-secondary">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-medium">Annual Tax Savings:</span>
+                                <span class="font-bold text-tax-secondary text-lg">$1,290</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-orange-50 border border-orange-200 p-6 rounded-lg">
+                        <h3 class="font-bold text-tax-accent mb-3 flex items-center">
+                            <i class="fas fa-calculator mr-2"></i>
+                            Tax Planning Review
+                        </h3>
+                        <p class="text-sm text-tax-gray mb-4">
+                            Schedule quarterly tax planning sessions with a CPA
+                        </p>
+                        <div class="bg-white p-3 rounded border-l-4 border-tax-accent">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-medium">Potential Savings:</span>
+                                <span class="font-bold text-tax-accent text-lg">$2,000+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional CTA Section -->
+    <section class="bg-tax-gradient py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-white bg-opacity-10 rounded-2xl p-8">
+                <h2 class="text-3xl font-bold text-white mb-4">Ready to Implement Your Tax Strategy?</h2>
+                <p class="text-xl text-green-100 mb-8">
+                    Connect with our network of certified tax professionals for personalized implementation guidance
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+                    <button class="bg-white text-tax-primary font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition">
+                        <i class="fas fa-download mr-2"></i>
+                        Download Complete Report (PDF)
+                    </button>
+                    <button class="border-2 border-white text-white font-bold py-4 px-8 rounded-lg hover:bg-white hover:text-tax-primary transition">
+                        <i class="fas fa-user-tie mr-2"></i>
+                        Schedule CPA Consultation
+                    </button>
+                </div>
+                <div class="flex justify-center space-x-6 text-sm text-green-100">
+                    <div class="flex items-center">
+                        <i class="fas fa-shield-alt mr-2"></i>
+                        <span>Licensed CPAs Only</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>Same-Day Scheduling</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-certificate mr-2"></i>
+                        <span>Professional Grade Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-tax-gray text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2026 AI Tax Agent Professional. All rights reserved.</p>
+            <p class="text-tax-accent text-sm mt-2">
+                <i class="fas fa-exclamation-triangle mr-1"></i>
+                For informational purposes only. Please consult a qualified tax professional for personalized advice.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const salary = parseInt(urlParams.get('salary')?.replace(/,/g, '') || '100000');
+        const state = urlParams.get('state') || 'TX-Austin';
+        const filingStatus = urlParams.get('filingStatus') || 'single';
+        
+        // Set analysis date
+        document.getElementById('analysisDate').textContent = new Date().toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+        // Calculate tax values based on input
+        function calculateTaxes(salary, state) {
+            const federalRate = salary > 89450 ? 0.22 : 0.12;
+            const ficaRate = 0.0765;
+            
+            let stateRate = 0;
+            let stateName = 'Texas';
+            
+            if (state.startsWith('NY')) {
+                stateRate = 0.0685;
+                stateName = 'New York';
+            } else if (state.startsWith('CA')) {
+                stateRate = 0.093;
+                stateName = 'California';
+            } else if (state.startsWith('FL')) {
+                stateRate = 0;
+                stateName = 'Florida';
+            }
+            
+            const federalTax = salary * federalRate;
+            const ficaTax = salary * ficaRate;
+            const stateTax = salary * stateRate;
+            const totalTax = federalTax + ficaTax + stateTax;
+            const takeHome = salary - totalTax;
+            const effectiveRate = (totalTax / salary) * 100;
+            
+            return {
+                takeHome,
+                effectiveRate,
+                federalTax,
+                ficaTax,
+                stateTax,
+                stateName,
+                totalTax
+            };
+        }
+
+        const taxes = calculateTaxes(salary, state);
+        
+        // Update display values
+        document.getElementById('takeHomePay').textContent = `$${Math.round(taxes.takeHome).toLocaleString()}`;
+        document.getElementById('monthlyPay').textContent = `$${Math.round(taxes.takeHome/12).toLocaleString()}/month`;
+        document.getElementById('effectiveRate').textContent = `${taxes.effectiveRate.toFixed(1)}%`;
+        document.getElementById('taxSavings').textContent = `$${Math.round(salary * 0.05).toLocaleString()}`;
+        document.getElementById('stateName').textContent = taxes.stateName;
+        document.getElementById('stateTax').textContent = `$${Math.round(taxes.stateTax).toLocaleString()}`;
+
+        // Tax Breakdown Chart
+        const ctx = document.getElementById('taxBreakdownChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Federal Income Tax', 'FICA Taxes', 'State Income Tax', 'Take-Home Pay'],
+                datasets: [{
+                    data: [
+                        Math.round(taxes.federalTax),
+                        Math.round(taxes.ficaTax),
+                        Math.round(taxes.stateTax),
+                        Math.round(taxes.takeHome)
+                    ],
+                    backgroundColor: [
+                        '#1565C0', // Tax Secondary (Blue)
+                        '#1B5E20', // Tax Primary (Green)
+                        '#FF8F00', // Tax Accent (Orange)
+                        '#10B981'  // Success Green
+                    ],
+                    borderWidth: 3,
+                    borderColor: '#ffffff',
+                    hoverBorderWidth: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            usePointStyle: true,
+                            font: {
+                                size: 12,
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#37474F',
+                        titleColor: '#ffffff',
+                        bodyColor: '#ffffff',
+                        borderColor: '#1B5E20',
+                        borderWidth: 2,
+                        callbacks: {
+                            label: function(context) {
+                                const label = context.label || '';
+                                const value = context.parsed;
+                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = ((value / total) * 100).toFixed(1);
+                                return `${label}: $${value.toLocaleString()} (${percentage}%)`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Professional report download simulation
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('Download')) {
+                button.addEventListener('click', function() {
+                    this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating Professional Report...';
+                    this.disabled = true;
+                    
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fas fa-check mr-2"></i>Report Ready for Download';
+                        this.classList.add('bg-green-600');
+                        
+                        setTimeout(() => {
+                            this.innerHTML = '<i class="fas fa-download mr-2"></i>Download Complete Report (PDF)';
+                            this.classList.remove('bg-green-600');
+                            this.disabled = false;
+                        }, 2000);
+                    }, 3000);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
