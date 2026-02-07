@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPA Professional Network - AI Tax Agent</title>
+    <meta name="description" content="Connect with certified public accountants specializing in tax optimization, financial planning, and strategic tax advice.">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .tax-primary { background-color: #1B5E20; }
+        .tax-secondary { background-color: #1565C0; }
+        .tax-accent { background-color: #FF8F00; }
+        .tax-gray { background-color: #37474F; }
+        .text-tax-primary { color: #1B5E20; }
+        .text-tax-secondary { color: #1565C0; }
+        .text-tax-accent { color: #FF8F00; }
+        .text-tax-gray { color: #37474F; }
+        .bg-tax-gradient { background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #1565C0 100%); }
+        .tax-shadow { box-shadow: 0 4px 20px rgba(27, 94, 32, 0.15); }
+        .cpa-card { transition: all 0.3s ease; cursor: pointer; }
+        .cpa-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(27, 94, 32, 0.25); }
+        .certification-badge { background: linear-gradient(45deg, #1B5E20, #2E7D32); color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+        .rating-stars { color: #FF8F00; }
+        .specialty-tag { background-color: #E3F2FD; color: #1565C0; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 500; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50 border-b-2 border-tax-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-university text-2xl text-tax-primary mr-3"></i>
+                        <span class="text-xl font-bold text-tax-gray">AI Tax Agent</span>
+                        <span class="ml-2 text-sm text-tax-secondary font-medium">Professional</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-tax-gray hover:text-tax-primary transition font-medium">Calculator</a>
+                    <a href="compare-states.html" class="text-tax-gray hover:text-tax-primary transition font-medium">Compare States</a>
+                    <a href="tax-resources.html" class="text-tax-gray hover:text-tax-primary transition font-medium">Tax Resources</a>
+                    <a href="#" class="text-tax-primary font-bold">CPA Network</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="bg-tax-gradient text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex justify-center mb-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-full">
+                        <i class="fas fa-user-tie text-4xl text-white"></i>
+                    </div>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">CPA Professional Network</h1>
+                <p class="text-xl text-green-100 max-w-3xl mx-auto mb-8">
+                    Connect with certified public accountants who specialize in tax optimization, 
+                    financial planning, and strategic tax advice for individuals and businesses
+                </p>
+                
+                <!-- Trust Indicators -->
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="bg-white bg-opacity-20 rounded-lg px-4 py-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-certificate text-yellow-300 mr-2"></i>
+                            <div class="text-left">
+                                <div class="font-bold">500+ Licensed CPAs</div>
+                                <div class="text-sm text-green-100">Verified Professionals</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white bg-opacity-20 rounded-lg px-4 py-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-300 mr-2"></i>
+                            <div class="text-left">
+                                <div class="font-bold">4.9/5 Rating</div>
+                                <div class="text-sm text-green-100">Client Satisfaction</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white bg-opacity-20 rounded-lg px-4 py-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-yellow-300 mr-2"></i>
+                            <div class="text-left">
+                                <div class="font-bold">Same-Day Booking</div>
+                                <div class="text-sm text-green-100">Quick Scheduling</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured CPAs -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-tax-gray mb-6 flex items-center">
+                <i class="fas fa-star text-tax-accent mr-3"></i>
+                Featured Tax Professionals
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-6" id="featuredCPAs">
+                <!-- CPA Card 1 -->
+                <div class="cpa-card bg-white rounded-xl tax-shadow p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 bg-tax-primary rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-tax-gray text-lg">Michael Chen, CPA</h3>
+                                <p class="text-sm text-tax-gray opacity-75">Senior Tax Partner</p>
+                                <div class="flex items-center mt-1">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-sm text-tax-gray ml-2">5.0 (127 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="certification-badge">
+                            <i class="fas fa-certificate mr-1"></i>CPA
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="text-sm text-tax-gray mb-3">
+                            Specializing in high-net-worth individual tax planning and multi-state tax optimization. 
+                            15+ years experience with complex tax situations.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="specialty-tag">Individual Tax</span>
+                            <span class="specialty-tag">Multi-State</span>
+                            <span class="specialty-tag">Estate Planning</span>
+                        </div>
+                        
+                        <div class="flex items-center text-sm text-tax-gray mb-2">
+                            <i class="fas fa-map-marker-alt text-tax-primary mr-2"></i>
+                            <span>New York, NY • Virtual Available</span>
+                        </div>
+                        
+                        <div class="flex items-center text-sm text-tax-gray mb-2">
+                            <i class="fas fa-clock text-tax-secondary mr-2"></i>
+                            <span>15+ Years Experience</span>
+                        </div>
+                        
+                        <div class="flex items-center text-sm text-tax-gray">
+                            <i class="fas fa-dollar-sign text-tax-accent mr-2"></i>
+                            <span>$300/hour • Free 15-min consultation</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-3">
+                        <button class="flex-1 bg-tax-primary text-white py-2 px-4 rounded-lg hover:bg-opacity-90 transition font-medium">
+                            <i class="fas fa-calendar mr-2"></i>Book Consultation
+                        </button>
+                        <button class="bg-gray-100 text-tax-gray py-2 px-4 rounded-lg hover:bg-gray-200 transition">
+                            <i class="fas fa-user"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CPA Card 2 -->
+                <div class="cpa-card bg-white rounded-xl tax-shadow p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 bg-tax-secondary rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-tax-gray text-lg">Sarah Rodriguez, CPA</h3>
+                                <p class="text-sm text-tax-gray opacity-75">Tax Strategy Director</p>
+                                <div class="flex items-center mt-1">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-sm text-tax-gray ml-2">4.9 (89 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="certification-badge">
+                            <i class="fas fa-certificate mr-1"></i>CPA
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="text-sm text-tax-gray mb-3">
+                            Expert in business tax strategy and startup tax planning. Helps entrepreneurs 
+                            optimize their tax structure from incorporation to exit.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="specialty-tag">Business Tax</span>
+                            <span class="specialty-tag">Startups</span>
+                            <span class="specialty-tag">Tax Strategy</span>
+                        </div>
+                        
+                        <div class="flex items-center text-sm text-tax-gray mb-2">
+                            <i class="fas fa-map-marker-alt text-tax-primary mr-2"></i>
+                            <span>Austin, TX • Virtual Available</span>
+                        </div>
+                        
+                        <div class="flex items-center text-sm text-tax-gray mb-2">
+                            <i class="fas fa-clock text-tax-secondary mr-2"></i>
+                            <span>12+ Years Experience</span>
+                        </div>
+                        
+                        <div class="flex items-center text-sm text-tax-gray">
+                            <i class="fas fa-dollar-sign text-tax-accent mr-2"></i>
+                            <span>$275/hour • Free 15-min consultation</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-3">
+                        <button class="flex-1 bg-tax-primary text-white py-2 px-4 rounded-lg hover:bg-opacity-90 transition font-medium">
+                            <i class="fas fa-calendar mr-2"></i>Book Consultation
+                        </button>
+                        <button class="bg-gray-100 text-tax-gray py-2 px-4 rounded-lg hover:bg-gray-200 transition">
+                            <i class="fas fa-user"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CPA Card 3 -->
+                <div class="cpa-card bg-white rounded-xl tax-shadow p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 bg-tax-accent rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-tax-gray text-lg">David Thompson, CPA</h3>
+                                <p class="text-sm text-tax-gray opacity-75">International Tax Specialist</p>
+                                <div class="flex items-center mt-1">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-sm text-tax-gray ml-2">4.8 (156 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="certification-badge">
+                            <i class="fas fa-certificate mr-1"></i>CPA
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="text-sm text-tax-gray mb-3">
+                            International tax expert helping expatriates and multinational businesses 
+                            navigate complex cross-border tax regulations and treaties.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="specialty-tag">International</span>
+                            <span class="specialty-tag">Expatriate</span>
+                            <span class="specialty-tag">Treaties</span>
+                        </div>
+                        
+                        <div class="flex items-center text-sm text-tax-gray mb-2">
+                            <i class="fas fa-map-marker-alt text-tax-primary mr-2"></i>
+                            <span>Miami, FL • Virtual Available</span>
+                        </div>
+                        
+                        <div class="flex items-center text-sm text-tax-gray mb-2">
+                            <i class="fas fa-clock text-tax-secondary mr-2"></i>
+                            <span>20+ Years Experience</span>
+                        </div>
+                        
+                        <div class="flex items-center text-sm text-tax-gray">
+                            <i class="fas fa-dollar-sign text-tax-accent mr-2"></i>
+                            <span>$350/hour • Free 15-min consultation</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-3">
+                        <button class="flex-1 bg-tax-primary text-white py-2 px-4 rounded-lg hover:bg-opacity-90 transition font-medium">
+                            <i class="fas fa-calendar mr-2"></i>Book Consultation
+                        </button>
+                        <button class="bg-gray-100 text-tax-gray py-2 px-4 rounded-lg hover:bg-gray-200 transition">
+                            <i class="fas fa-user"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-tax-gray mb-8 text-center">How Our CPA Network Works</h2>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="bg-tax-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                        1
+                    </div>
+                    <h3 class="font-bold text-tax-gray mb-2">Search & Filter</h3>
+                    <p class="text-sm text-tax-gray">Find CPAs by location, specialty, and experience level</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-tax-secondary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                        2
+                    </div>
+                    <h3 class="font-bold text-tax-gray mb-2">Review Profiles</h3>
+                    <p class="text-sm text-tax-gray">Compare credentials, reviews, and service offerings</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-tax-accent text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                        3
+                    </div>
+                    <h3 class="font-bold text-tax-gray mb-2">Book Consultation</h3>
+                    <p class="text-sm text-tax-gray">Schedule a free 15-minute consultation to discuss your needs</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-purple-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                        4
+                    </div>
+                    <h3 class="font-bold text-tax-gray mb-2">Get Expert Help</h3>
+                    <p class="text-sm text-tax-gray">Work with your chosen CPA on tax planning and preparation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-tax-gradient py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-white bg-opacity-10 rounded-2xl p-8">
+                <h2 class="text-3xl font-bold text-white mb-4">Ready to Connect with a Tax Professional?</h2>
+                <p class="text-xl text-green-100 mb-8">
+                    Join thousands of satisfied clients who've optimized their taxes with our certified professionals
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+                    <button class="bg-white text-tax-primary font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition">
+                        <i class="fas fa-search mr-2"></i>
+                        Browse All CPAs
+                    </button>
+                    <button class="border-2 border-white text-white font-bold py-4 px-8 rounded-lg hover:bg-white hover:text-tax-primary transition">
+                        <i class="fas fa-phone mr-2"></i>
+                        Call for Assistance
+                    </button>
+                </div>
+                <div class="flex justify-center space-x-6 text-sm text-green-100">
+                    <div class="flex items-center">
+                        <i class="fas fa-shield-alt mr-2"></i>
+                        <span>Verified Professionals</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>Free Consultations</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-star mr-2"></i>
+                        <span>Top-Rated Service</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-tax-gray text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2026 AI Tax Agent Professional. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Book consultation functionality
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('Book Consultation')) {
+                button.addEventListener('click', function() {
+                    const cpaCard = this.closest('.cpa-card');
+                    const cpaName = cpaCard.querySelector('h3').textContent;
+                    
+                    const confirmed = confirm(`Book a consultation with ${cpaName}?\n\nThis will redirect you to their scheduling page.`);
+                    
+                    if (confirmed) {
+                        this.innerHTML = '<i class="fas fa-check mr-2"></i>Booking...';
+                        this.disabled = true;
+                        
+                        setTimeout(() => {
+                            this.innerHTML = '<i class="fas fa-calendar-check mr-2"></i>Booked!';
+                            this.classList.add('bg-green-600');
+                            
+                            setTimeout(() => {
+                                this.innerHTML = '<i class="fas fa-calendar mr-2"></i>Book Consultation';
+                                this.classList.remove('bg-green-600');
+                                this.disabled = false;
+                            }, 2000);
+                        }, 1000);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

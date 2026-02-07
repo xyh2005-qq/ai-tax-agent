@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-State Tax Comparison - AI Tax Agent Professional</title>
+    <meta name="description" content="Compare tax implications across all 50 US states with cost-of-living adjustments and professional relocation insights.">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .tax-primary { background-color: #1B5E20; }
+        .tax-secondary { background-color: #1565C0; }
+        .tax-accent { background-color: #FF8F00; }
+        .tax-gray { background-color: #37474F; }
+        .text-tax-primary { color: #1B5E20; }
+        .text-tax-secondary { color: #1565C0; }
+        .text-tax-accent { color: #FF8F00; }
+        .text-tax-gray { color: #37474F; }
+        .bg-tax-gradient { background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #1565C0 100%); }
+        .tax-shadow { box-shadow: 0 4px 20px rgba(27, 94, 32, 0.15); }
+        .state-card { transition: all 0.3s ease; cursor: pointer; }
+        .state-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(27, 94, 32, 0.25); }
+        .state-card.selected { border: 3px solid #1B5E20; transform: translateY(-2px); }
+        .tax-friendly { background-color: #E8F5E8; }
+        .tax-moderate { background-color: #FFF3E0; }
+        .tax-high { background-color: #FFEBEE; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50 border-b-2 border-tax-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-university text-2xl text-tax-primary mr-3"></i>
+                        <span class="text-xl font-bold text-tax-gray">AI Tax Agent</span>
+                        <span class="ml-2 text-sm text-tax-secondary font-medium">Professional</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-tax-gray hover:text-tax-primary transition font-medium">Calculator</a>
+                    <a href="#" class="text-tax-primary font-bold">Compare States</a>
+                    <a href="tax-resources.html" class="text-tax-gray hover:text-tax-primary transition font-medium">Tax Resources</a>
+                    <a href="cpa-network.html" class="text-tax-gray hover:text-tax-primary transition font-medium">CPA Network</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="bg-tax-gradient text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex justify-center mb-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-full">
+                        <i class="fas fa-balance-scale text-4xl text-white"></i>
+                    </div>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Multi-State Tax Comparison</h1>
+                <p class="text-xl text-green-100 max-w-3xl mx-auto">
+                    Professional-grade analysis comparing tax implications across all 50 states 
+                    with cost-of-living adjustments and relocation insights
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- State Selection Grid -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-2xl tax-shadow p-8 mb-8">
+                <h2 class="text-2xl font-bold text-tax-gray mb-6 flex items-center">
+                    <i class="fas fa-map-marked-alt text-tax-secondary mr-3"></i>
+                    Select States to Compare
+                </h2>
+                
+                <div class="mb-6">
+                    <div class="flex flex-wrap gap-2">
+                        <button class="filter-btn bg-tax-primary text-white px-4 py-2 rounded-lg text-sm font-medium" data-filter="all">
+                            All States
+                        </button>
+                        <button class="filter-btn bg-gray-200 text-tax-gray px-4 py-2 rounded-lg text-sm font-medium hover:bg-tax-primary hover:text-white transition" data-filter="no-tax">
+                            No State Tax
+                        </button>
+                        <button class="filter-btn bg-gray-200 text-tax-gray px-4 py-2 rounded-lg text-sm font-medium hover:bg-tax-primary hover:text-white transition" data-filter="popular">
+                            Popular Destinations
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4" id="stateGrid">
+                    <!-- No State Tax States -->
+                    <div class="state-card tax-friendly p-4 rounded-lg border-2 border-green-200" data-state="TX" data-category="no-tax popular">
+                        <div class="text-center">
+                            <div class="text-2xl mb-2">🤠</div>
+                            <div class="font-bold text-tax-gray">Texas</div>
+                            <div class="text-xs text-green-600 font-medium">No State Tax</div>
+                        </div>
+                    </div>
+                    
+                    <div class="state-card tax-friendly p-4 rounded-lg border-2 border-green-200" data-state="FL" data-category="no-tax popular">
+                        <div class="text-center">
+                            <div class="text-2xl mb-2">🌴</div>
+                            <div class="font-bold text-tax-gray">Florida</div>
+                            <div class="text-xs text-green-600 font-medium">No State Tax</div>
+                        </div>
+                    </div>
+                    
+                    <div class="state-card tax-friendly p-4 rounded-lg border-2 border-green-200" data-state="WA" data-category="no-tax popular">
+                        <div class="text-center">
+                            <div class="text-2xl mb-2">🏔️</div>
+                            <div class="font-bold text-tax-gray">Washington</div>
+                            <div class="text-xs text-green-600 font-medium">No State Tax</div>
+                        </div>
+                    </div>
+                    
+                    <div class="state-card tax-high p-4 rounded-lg border-2 border-red-200" data-state="NY" data-category="high-tax popular">
+                        <div class="text-center">
+                            <div class="text-2xl mb-2">🗽</div>
+                            <div class="font-bold text-tax-gray">New York</div>
+                            <div class="text-xs text-red-600 font-medium">4-10.9% + Local</div>
+                        </div>
+                    </div>
+                    
+                    <div class="state-card tax-high p-4 rounded-lg border-2 border-red-200" data-state="CA" data-category="high-tax popular">
+                        <div class="text-center">
+                            <div class="text-2xl mb-2">☀️</div>
+                            <div class="font-bold text-tax-gray">California</div>
+                            <div class="text-xs text-red-600 font-medium">1-13.3%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="state-card tax-moderate p-4 rounded-lg border-2 border-yellow-200" data-state="CO" data-category="low-tax popular">
+                        <div class="text-center">
+                            <div class="text-2xl mb-2">🏔️</div>
+                            <div class="font-bold text-tax-gray">Colorado</div>
+                            <div class="text-xs text-orange-600 font-medium">4.4% Flat Tax</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 p-4 bg-blue-50 rounded-lg border-l-4 border-tax-secondary">
+                    <div class="flex items-center">
+                        <i class="fas fa-info-circle text-tax-secondary mr-3"></i>
+                        <div class="text-sm text-tax-gray">
+                            <strong>Selected States:</strong> <span id="selectedStates">Click states above to add them to comparison</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison Results -->
+            <div class="bg-white rounded-2xl tax-shadow p-8" id="comparisonResults">
+                <h2 class="text-2xl font-bold text-tax-gray mb-6 flex items-center">
+                    <i class="fas fa-chart-bar text-tax-accent mr-3"></i>
+                    Professional Tax Comparison Analysis
+                </h2>
+                
+                <!-- Comparison Chart -->
+                <div class="mb-8">
+                    <canvas id="comparisonChart" width="800" height="400"></canvas>
+                </div>
+                
+                <!-- Sample Comparison Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-tax-gradient text-white">
+                                <th class="px-6 py-4 text-left font-bold">State</th>
+                                <th class="px-6 py-4 text-center font-bold">Take-Home Pay</th>
+                                <th class="px-6 py-4 text-center font-bold">Effective Tax Rate</th>
+                                <th class="px-6 py-4 text-center font-bold">Annual Difference</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comparisonTableBody">
+                            <tr class="bg-green-50 border-l-4 border-tax-primary">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <span class="text-2xl mr-2">🤠</span>
+                                        <div>
+                                            <div class="font-bold text-tax-gray">Texas</div>
+                                            <div class="text-sm text-tax-gray opacity-75">No State Tax</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="font-bold text-tax-primary">$73,250</div>
+                                    <div class="text-sm text-tax-gray opacity-75">$6,104/month</div>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="font-bold">22.5%</div>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="text-tax-primary font-bold">+$8,000</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <span class="text-2xl mr-2">🗽</span>
+                                        <div>
+                                            <div class="font-bold text-tax-gray">New York</div>
+                                            <div class="text-sm text-tax-gray opacity-75">High Tax State</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="font-bold text-tax-gray">$65,250</div>
+                                    <div class="text-sm text-tax-gray opacity-75">$5,438/month</div>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="font-bold">32.8%</div>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="text-tax-gray">Baseline</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-tax-gradient py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-white bg-opacity-10 rounded-2xl p-8">
+                <h2 class="text-3xl font-bold text-white mb-4">Need Personalized Relocation Advice?</h2>
+                <p class="text-xl text-green-100 mb-8">
+                    Our certified tax professionals can provide detailed relocation analysis and implementation strategies
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-white text-tax-primary font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition">
+                        <i class="fas fa-user-tie mr-2"></i>
+                        Schedule Relocation Consultation
+                    </button>
+                    <button class="border-2 border-white text-white font-bold py-4 px-8 rounded-lg hover:bg-white hover:text-tax-primary transition">
+                        <i class="fas fa-download mr-2"></i>
+                        Download Comparison Report
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-tax-gray text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2026 AI Tax Agent Professional. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // State comparison data
+        const stateData = {
+            'TX': { name: 'Texas', takeHome: 73250, effectiveRate: 22.5, emoji: '🤠' },
+            'FL': { name: 'Florida', takeHome: 73250, effectiveRate: 22.5, emoji: '🌴' },
+            'WA': { name: 'Washington', takeHome: 73250, effectiveRate: 22.5, emoji: '🏔️' },
+            'NY': { name: 'New York', takeHome: 65250, effectiveRate: 32.8, emoji: '🗽' },
+            'CA': { name: 'California', takeHome: 62500, effectiveRate: 34.5, emoji: '☀️' },
+            'CO': { name: 'Colorado', takeHome: 69800, effectiveRate: 26.2, emoji: '🏔️' }
+        };
+
+        let selectedStates = [];
+        let comparisonChart = null;
+
+        // State selection functionality
+        document.querySelectorAll('.state-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const state = this.dataset.state;
+                
+                if (this.classList.contains('selected')) {
+                    this.classList.remove('selected');
+                    selectedStates = selectedStates.filter(s => s !== state);
+                } else {
+                    if (selectedStates.length < 6) {
+                        this.classList.add('selected');
+                        selectedStates.push(state);
+                    } else {
+                        alert('Maximum 6 states can be compared at once');
+                    }
+                }
+                
+                updateSelectedStatesDisplay();
+                updateComparison();
+            });
+        });
+
+        function updateSelectedStatesDisplay() {
+            const display = document.getElementById('selectedStates');
+            if (selectedStates.length === 0) {
+                display.textContent = 'Click states above to add them to comparison';
+            } else {
+                const stateNames = selectedStates.map(s => stateData[s].name).join(', ');
+                display.textContent = `${stateNames} (${selectedStates.length}/6)`;
+            }
+        }
+
+        function updateComparison() {
+            if (selectedStates.length === 0) return;
+            updateComparisonChart();
+        }
+
+        function updateComparisonChart() {
+            const ctx = document.getElementById('comparisonChart').getContext('2d');
+            
+            if (comparisonChart) {
+                comparisonChart.destroy();
+            }
+            
+            const labels = selectedStates.map(s => stateData[s].name);
+            const takeHomeData = selectedStates.map(s => stateData[s].takeHome);
+            
+            comparisonChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Take-Home Pay ($)',
+                        data: takeHomeData,
+                        backgroundColor: '#1B5E20',
+                        borderColor: '#2E7D32',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: { font: { weight: 'bold' } }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Take-Home Pay ($)',
+                                font: { weight: 'bold' }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize with some default states
+        setTimeout(() => {
+            document.querySelector('[data-state="TX"]').click();
+            document.querySelector('[data-state="NY"]').click();
+        }, 500);
+    </script>
+</body>
+</html>
