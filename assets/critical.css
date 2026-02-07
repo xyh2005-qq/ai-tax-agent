@@ -1,0 +1,83 @@
+/* AI Tax Agent - Critical CSS for Performance */
+
+/* 专业税务配色 */
+:root {
+    --tax-primary: #1B5E20;
+    --tax-primary-light: #2E7D32;
+    --tax-secondary: #1565C0;
+    --tax-secondary-light: #1976D2;
+    --tax-accent: #FF8F00;
+    --tax-accent-light: #FFA000;
+    --tax-gray: #37474F;
+    --tax-gray-light: #455A64;
+}
+
+.tax-primary { background-color: var(--tax-primary); }
+.tax-primary-light { background-color: var(--tax-primary-light); }
+.tax-secondary { background-color: var(--tax-secondary); }
+.tax-secondary-light { background-color: var(--tax-secondary-light); }
+.tax-accent { background-color: var(--tax-accent); }
+.tax-accent-light { background-color: var(--tax-accent-light); }
+.tax-gray { background-color: var(--tax-gray); }
+.tax-gray-light { background-color: var(--tax-gray-light); }
+
+.text-tax-primary { color: var(--tax-primary); }
+.text-tax-secondary { color: var(--tax-secondary); }
+.text-tax-accent { color: var(--tax-accent); }
+.text-tax-gray { color: var(--tax-gray); }
+
+.border-tax-primary { border-color: var(--tax-primary); }
+.border-tax-secondary { border-color: var(--tax-secondary); }
+.border-tax-accent { border-color: var(--tax-accent); }
+
+.bg-tax-gradient { 
+    background: linear-gradient(135deg, var(--tax-primary) 0%, var(--tax-primary-light) 50%, var(--tax-secondary) 100%); 
+}
+.bg-tax-light-gradient { 
+    background: linear-gradient(135deg, #E8F5E8 0%, #E3F2FD 100%); 
+}
+
+/* 专业阴影效果 */
+.tax-shadow { 
+    box-shadow: 0 4px 20px rgba(27, 94, 32, 0.15); 
+}
+.tax-shadow-lg { 
+    box-shadow: 0 10px 40px rgba(27, 94, 32, 0.2); 
+}
+
+/* 性能优化 - 减少重绘 */
+.metric-card, .feature-card, .cpa-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+.metric-card:hover, .feature-card:hover, .cpa-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(27, 94, 32, 0.25);
+}
+
+/* 可访问性改进 */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* 响应式字体 */
+@media (max-width: 768px) {
+    .text-4xl { font-size: 2rem; }
+    .text-6xl { font-size: 3rem; }
+}
+
+/* 打印样式 */
+@media print {
+    .no-print { display: none !important; }
+    .tax-shadow, .tax-shadow-lg { box-shadow: none !important; }
+    .bg-tax-gradient { background: var(--tax-primary) !important; }
+}

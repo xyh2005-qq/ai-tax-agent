@@ -1,0 +1,117 @@
+{
+  "name": "AI Tax Agent Professional",
+  "short_name": "AI Tax Agent",
+  "description": "Professional AI-powered tax calculator with expert optimization strategies and state comparison tools.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1B5E20",
+  "theme_color": "#1B5E20",
+  "orientation": "portrait-primary",
+  "categories": ["finance", "productivity", "business"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/assets/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "AI Tax Agent Desktop Calculator"
+    },
+    {
+      "src": "/assets/screenshot-mobile.png",
+      "sizes": "375x667",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "AI Tax Agent Mobile Calculator"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Tax Calculator",
+      "short_name": "Calculator",
+      "description": "Calculate your taxes instantly",
+      "url": "/#calculator",
+      "icons": [
+        {
+          "src": "/assets/shortcut-calculator.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Compare States",
+      "short_name": "States",
+      "description": "Compare tax rates across states",
+      "url": "/compare-states.html",
+      "icons": [
+        {
+          "src": "/assets/shortcut-states.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Find CPA",
+      "short_name": "CPA",
+      "description": "Connect with tax professionals",
+      "url": "/cpa-network.html",
+      "icons": [
+        {
+          "src": "/assets/shortcut-cpa.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}
